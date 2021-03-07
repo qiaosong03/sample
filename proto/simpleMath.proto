@@ -57,40 +57,36 @@ message helloResponse{
 
 service SimpleMathService{
     rpc add(addRequest) returns (addResponse){
-        option(googole.api.http)={
-            get:"v1/sample/add"
-            body:"*"
+        option(google.api.http)={
+            get:"/v1/sample/add"
         };
     }
     rpc subtract(subtractRequest) returns (subtractResponse){
-        option(googole.api.http)={
-                get:"v1/sample/subtract"
-                body:"*"
+        option(google.api.http)={
+                get:"/v1/sample/subtract"
             };
     }
     rpc multiply(multiplyRequest) returns (multiplyResponse){
-        option(googole.api.http)={
-                    get:"v1/sample/multiply"
-                    body:"*"
+        option(google.api.http)={
+                    get:"/v1/sample/multiply"
                 };}
     rpc divide(divideRequest) returns (divideResponse){
-        option(googole.api.http)={
-                    get:"v1/sample/divide"
-                    body:"*"
+        option(google.api.http)={
+                    get:"/v1/sample/divide"
                 };}
     rpc serverStream(squareRequest) returns(stream squareResponse) {
-        option(googole.api.http)={
-                    post:"v1/sample/serverStream"
+        option(google.api.http)={
+                    post:"/v1/sample/serverStream"
                     body:"*"
                 };}
     rpc clientStream(stream helloRequest) returns(helloResponse) {
-        option(googole.api.http)={
-                    post:"v1/sample/clientStream"
+        option(google.api.http)={
+                    post:"/v1/sample/clientStream"
                     body:"*"
                 };}
     rpc doubleStream(stream helloRequest) returns(stream helloResponse) {
-        option(googole.api.http)={
-                    post:"v1/sample/doubleStream"
+        option(google.api.http)={
+                    post:"/v1/sample/doubleStream"
                     body:"*"
                 };}
 }
