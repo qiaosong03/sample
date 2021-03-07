@@ -1,6 +1,7 @@
 syntax = "proto3";
 package simpleMath;
 option go_package = ".;pb";
+import "google/api/annotations.proto";
 
 message addRequest{
     int32 a =1;
@@ -55,12 +56,42 @@ message helloResponse{
 }
 
 service SimpleMathService{
-    rpc add(addRequest) returns (addResponse){}
-    rpc subtract(subtractRequest) returns (subtractResponse){}
-    rpc multiply(multiplyRequest) returns (multiplyResponse){}
-    rpc divide(divideRequest) returns (divideResponse){}
-    rpc serverStream(squareRequest) returns(stream squareResponse) {}
-    rpc clientStream(stream helloRequest) returns(helloResponse) {}
-    rpc doubleStream(stream helloRequest) returns(stream helloResponse) {}
+    rpc add(addRequest) returns (addResponse){
+        option(googole.api.http)={
+            get:"v1/sample/add"
+            body:"*"
+        };
+    }
+    rpc subtract(subtractRequest) returns (subtractResponse){
+        option(googole.api.http)={
+                get:"v1/sample/subtract"
+                body:"*"
+            };
+    }
+    rpc multiply(multiplyRequest) returns (multiplyResponse){
+        option(googole.api.http)={
+                    get:"v1/sample/multiply"
+                    body:"*"
+                };}
+    rpc divide(divideRequest) returns (divideResponse){
+        option(googole.api.http)={
+                    get:"v1/sample/divide"
+                    body:"*"
+                };}
+    rpc serverStream(squareRequest) returns(stream squareResponse) {
+        option(googole.api.http)={
+                    post:"v1/sample/serverStream"
+                    body:"*"
+                };}
+    rpc clientStream(stream helloRequest) returns(helloResponse) {
+        option(googole.api.http)={
+                    post:"v1/sample/clientStream"
+                    body:"*"
+                };}
+    rpc doubleStream(stream helloRequest) returns(stream helloResponse) {
+        option(googole.api.http)={
+                    post:"v1/sample/doubleStream"
+                    body:"*"
+                };}
 }
 
