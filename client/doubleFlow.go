@@ -6,12 +6,12 @@ import (
 	"google.golang.org/grpc"
 	"io"
 	"math/rand"
-	"qiaosong03.com/simple03_grpc/pb"
+	"qiaosong03.com/supportHttp/pb"
 	"strconv"
 )
 
 func main() {
-	conn, err := grpc.Dial("127.0.0.1:4444", grpc.WithInsecure())
+	conn, err := grpc.Dial("127.0.0.1:9090", grpc.WithInsecure())
 	defer conn.Close()
 	if err != nil {
 		fmt.Errorf("连接创建失败！")

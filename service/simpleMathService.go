@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"qiaosong03.com/simple03_grpc/pb"
+	"qiaosong03.com/supportHttp/pb"
 	"strconv"
 	"time"
 )
@@ -59,7 +59,7 @@ func (sMath *MySimpleMathService) ClientStream(stream pb.SimpleMathService_Clien
 	for {
 		r, err := stream.Recv()
 		if err == io.EOF {
-			return stream.SendAndClose(&pb.HelloResponse{Hello: "服务端总共接收到了" + strconv.Itoa(i) + "个数据！",})
+			return stream.SendAndClose(&pb.HelloResponse{Hello: "服务端总共接收到了" + strconv.Itoa(i) + "个数据！"})
 		}
 		if err != nil {
 			return err
