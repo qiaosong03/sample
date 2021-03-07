@@ -1,0 +1,47 @@
+syntax = "proto3";
+package simpleMath;
+option go_package = ".;pb";
+
+message addRequest{
+    int32 a =1;
+    int32 b=2;
+}
+
+message addResponse{
+    int32 res=1;
+}
+
+message subtractRequest{
+    int32 a=1;
+    int32 b=2;
+}
+
+message subtractResponse{
+    int32 res=1;
+}
+
+message multiplyRequest{
+    int32 a=1;
+    int32 b=2;
+}
+
+message multiplyResponse{
+    int32 res=1;
+}
+
+message divideRequest{
+    int32 a=1;
+    int32 b=2;
+}
+
+message divideResponse{
+    int32 res=1;
+}
+
+service SimpleMathService{
+    rpc add(addRequest) returns (addResponse){}
+    rpc subtract(subtractRequest) returns (subtractResponse){}
+    rpc multiply(multiplyRequest) returns (multiplyResponse){}
+    rpc divide(divideRequest) returns (divideResponse){}
+}
+
